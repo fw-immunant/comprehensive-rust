@@ -16,7 +16,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Format Rust code
+      - name: Install nightly Rust
+        runs: rustup default nightly
+
+      - name: Check Rust formatting
         run: cargo fmt --all -- --check
 
   cargo:
