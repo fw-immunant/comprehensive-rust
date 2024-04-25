@@ -17,12 +17,12 @@ _interoperability/bindgen/libbirthday.c_:
 {{#include bindgen/libbirthday.c:print_card}}
 ```
 
-Add this to your `Android.bp` file:
+Add this to your `Makefile`:
 
-_interoperability/bindgen/Android.bp_:
+_interoperability/bindgen/Makefile_:
 
-```javascript
-{{#include bindgen/Android.bp:libbirthday}}
+```makefile
+{{#include bindgen/Makefile:libbirthday}}
 ```
 
 Create a wrapper header file for the library (not strictly needed in this
@@ -36,18 +36,18 @@ _interoperability/bindgen/libbirthday_wrapper.h_:
 
 You can now auto-generate the bindings:
 
-_interoperability/bindgen/Android.bp_:
+_interoperability/bindgen/Makefile_:
 
-```javascript
-{{#include bindgen/Android.bp:libbirthday_bindgen}}
+```makefile
+{{#include bindgen/Makefile:libbirthday_bindgen}}
 ```
 
 Finally, we can use the bindings in our Rust program:
 
-_interoperability/bindgen/Android.bp_:
+_interoperability/bindgen/Makefile_:
 
-```javascript
-{{#include bindgen/Android.bp:print_birthday_card}}
+```makefile
+{{#include bindgen/Makefile:print_birthday_card}}
 ```
 
 _interoperability/bindgen/main.rs_:
@@ -56,20 +56,22 @@ _interoperability/bindgen/main.rs_:
 {{#include bindgen/main.rs:main}}
 ```
 
-Build, push, and run the binary on your device:
+Build and run the binary:
 
 ```shell
-{{#include ../../build_all.sh:print_birthday_card}}
+$ make print_birthday_card
+$ ./print_birthday_card
 ```
 
 Finally, we can run auto-generated tests to ensure the bindings work:
 
-_interoperability/bindgen/Android.bp_:
+_interoperability/bindgen/Makefile_:
 
-```javascript
-{{#include bindgen/Android.bp:libbirthday_bindgen_test}}
+```makefile
+{{#include bindgen/Makefile:libbirthday_bindgen_test}}
 ```
 
 ```shell
-{{#include ../../build_all.sh:libbirthday_bindgen_test}}
+$ make libbirthday_bindgen_test
+$ ./libbirthday_bindgen_test
 ```

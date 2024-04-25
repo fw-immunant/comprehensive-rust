@@ -14,10 +14,10 @@ _interoperability/rust/libanalyze/analyze.h_
 {{#include rust/libanalyze/analyze.h:analyze_numbers}}
 ```
 
-_interoperability/rust/libanalyze/Android.bp_
+_interoperability/rust/libanalyze/Makefile_
 
-```javascript
-{{#include rust/libanalyze/Android.bp}}
+```makefile
+{{#include rust/libanalyze/Makefile}}
 ```
 
 We can now call this from a C binary:
@@ -28,16 +28,18 @@ _interoperability/rust/analyze/main.c_
 {{#include rust/analyze/main.c:main}}
 ```
 
-_interoperability/rust/analyze/Android.bp_
+_interoperability/rust/analyze/Makefile_
 
-```javascript
-{{#include rust/analyze/Android.bp}}
+```makefile
+{{#include rust/analyze/Makefile}}
 ```
 
-Build, push, and run the binary on your device:
+Build and run the binary:
 
 ```shell
-{{#include ../../build_all.sh:analyze_numbers}}
+$ cd libanalyze; make; cd -
+$ cd analyze; make
+$ ./analyze
 ```
 
 <details>
