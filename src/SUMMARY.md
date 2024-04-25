@@ -398,6 +398,48 @@
   - [Broadcast Chat Application](concurrency/async-exercises/chat-app.md)
   - [Solutions](concurrency/async-exercises/solutions.md)
 
+
+# Zephyr
+
+---
+
+- [Welcome](zephyr/welcome.md)
+- [Fitting it together: Zephyr and Rust](zephyr/overview.md)
+  - [Isolation: Compile-time vs. Runtime](zephyr/isolation.md)
+  - [Integrating with an existing codebase](zephyr/interoperability.md)
+    - [Interoperability with C](zephyr/interoperability/with-c.md)
+    - [Calling C with Bindgen](zephyr/interoperability/with-c/bindgen.md)
+    - [Calling Rust from C](zephyr/interoperability/with-c/rust.md)
+    - [Calling Rust with `cbindgen`](zephyr/cbindgen.md)
+
+- [Embedded dev: Accessing devices](zephyr/accessing-devices.md)
+  - [raw mmio](zephyr/bare-metal/microcontrollers/mmio.md)
+  - [svd2rust / PACs](zephyr/bare-metal/microcontrollers/pacs.md)
+    - [singleton pattern](zephyr/singleton-pattern.md)
+  - [More abstraction: HAL crates / BSP crates](zephyr/bare-metal/microcontrollers/hals.md)
+  - [Even more abstraction: embedded-hal](zephyr/bare-metal/microcontrollers/embedded-hal.md)
+
+- [Embedded dev: Working without luxuries](zephyr/embedded-dev.md)
+  - [no_std](zephyr/bare-metal/no_std.md)
+    - [A Minimal Example](zephyr/bare-metal/minimal.md)
+    - [Panic handlers](zephyr/panic-handlers.md)
+  - [`alloc`](zephyr/bare-metal/alloc.md)
+    - [Fallible allocation](zephyr/fallible-allocation.md)
+
+- [Threading](zephyr/threading.md)
+  - [Threads](zephyr/concurrency/threads.md)
+    - [Plain Threads](zephyr/concurrency/threads/plain.md)
+    - [Scoped Threads](zephyr/concurrency/threads/scoped.md)
+  - [`Send` and `Sync`](zephyr/concurrency/send-sync.md)
+    - [Marker Traits](zephyr/concurrency/send-sync/marker-traits.md)
+    - [`Send`](zephyr/concurrency/send-sync/send.md)
+    - [`Sync`](zephyr/concurrency/send-sync/sync.md)
+    - [Examples](zephyr/concurrency/send-sync/examples.md)
+  - [Shared State](zephyr/concurrency/shared-state.md)
+    - [`Arc`](zephyr/concurrency/shared-state/arc.md)
+    - [`Mutex`](zephyr/concurrency/shared-state/mutex.md)
+    - [Example](zephyr/concurrency/shared-state/example.md)
+
 # Final Words
 
 ---
