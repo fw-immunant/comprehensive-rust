@@ -32,9 +32,12 @@ impl PartialEq for Key {
 }
 ```
 
-`Eq` is a full equivalence relation (reflexive, symmetric, and transitive) and
-implies `PartialEq`. Functions that require full equivalence will use `Eq` as a
-trait bound.
+`PartialEq` implementations should guarantee symmetry and transitivity; `Eq`
+implies `PartialEq` and also requires reflexivity, promising a full equivalence
+relation. Floats, in particular, do not exhibit reflexive equality due to NaN.
+
+Functions consuming these traits must decide which properties they require to
+choose whether an `Eq` or `PartialEq` bound is appropriate.
 
 ## `PartialOrd` and `Ord`
 
